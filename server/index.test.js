@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import { initializeTestDb, insertTestUser, getToken } from './helpers/test.js';
+import { initializeTestDb, insertTestUser, getToken } from '../helpers/test.js';
 //import {initializeTestDb} from './helpers/test.js';
 //import {insertTestUser, getToken} from './helpers/test.js';
 import dotenv from 'dotenv';

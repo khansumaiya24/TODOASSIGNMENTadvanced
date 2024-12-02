@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import { initializeTestDb, insertTestUser, getToken } from '../helpers/test.js';
+import { initializeTestDb, insertTestUser, getToken } from './helpers/test.js';
 //import {initializeTestDb} from './helpers/test.js';
 //import {insertTestUser, getToken} from './helpers/test.js';
 import dotenv from 'dotenv';
@@ -90,7 +90,7 @@ describe('DELETE Task', () => {
             method: 'delete',
             headers: {
                 
-                Authorization: token
+                'Authorization': token
             }
         });
         const data = await response.json();
@@ -119,8 +119,6 @@ describe('POST register',() => {
     const password = 'register123'
 
     it('should register with valid email and password', async() => {
-          
-            
                 const response = await fetch(base_url + '/user/register', {
                     method: 'post',
                     headers: {
@@ -136,7 +134,7 @@ describe('POST register',() => {
             it("should not post a user with less than 8 character password", async () => {
                 const email = "register@foo.com";
                 const password = "short1";
-                const response = await fetch(base_url + "user/register", {
+                const response = await fetch(base_url + "/user/register", {
                     method: "post",
                     headers: {
                         "Content-Type": "application/json",
@@ -157,11 +155,13 @@ describe('POST login',() => {
     const email = 'login@foo.com';
     const password = 'login123';
     insertTestUser(email, password);
+    const token = getToken(email);
     it('should login with valid credentials', async() => {
         const response = await fetch(base_url + '/user/login', {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': token
             },
             body: JSON.stringify({'email': email,  'password': password})
         })

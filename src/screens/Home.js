@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import axios from 'axios';
 import Row from '../components/Row';
+import { useUser } from '../context/useUser';
 
 const url='http://localhost:3001';
 

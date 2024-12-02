@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from './screens/Home';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Authentication,{AuthenticationMode} from './screens/Authentication';
 import ErrorPage from './screens/ErrorPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
-import  UserProvider  from './context/UserProvider';
+import UseProvider from './context/UserProvider';
 
 
 const router = createBrowserRouter([
